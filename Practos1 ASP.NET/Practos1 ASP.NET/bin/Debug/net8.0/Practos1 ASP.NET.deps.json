@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Practos1 ASP.NET/1.0.0": {
+        "runtime": {
+          "Practos1 ASP.NET.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Practos1 ASP.NET/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,33 @@
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\bin\Debug\net8.0\appsettings.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\bin\Debug\net8.0\Practos1 ASP.NET.staticwebassets.runtime.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\bin\Debug\net8.0\Practos1 ASP.NET.staticwebassets.endpoints.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\bin\Debug\net8.0\Practos1 ASP.NET.exe
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\bin\Debug\net8.0\Practos1 ASP.NET.deps.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\bin\Debug\net8.0\Practos1 ASP.NET.runtimeconfig.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\bin\Debug\net8.0\Practos1 ASP.NET.dll
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\bin\Debug\net8.0\Practos1 ASP.NET.pdb
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\Practos1 ASP.NET.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\Practos1 ASP.NET.AssemblyInfoInputs.cache
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\Practos1 ASP.NET.AssemblyInfo.cs
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\Practos1 ASP.NET.csproj.CoreCompileInputs.cache
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\Practos1 ASP.NET.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\Practos1 ASP.NET.RazorAssemblyInfo.cache
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\Practos1 ASP.NET.RazorAssemblyInfo.cs
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\scopedcss\bundle\Practos1 ASP.NET.styles.css
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\scopedcss\projectbundle\Practos1 ASP.NET.bundle.scp.css
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\Practos1 ASP.NET.dll
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\refint\Practos1 ASP.NET.dll
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\Practos1 ASP.NET.pdb
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\Practos1 ASP.NET.genruntimeconfig.cache
+C:\Users\lyudm\source\repos\Practos1 ASP.NET\Practos1 ASP.NET\obj\Debug\net8.0\ref\Practos1 ASP.NET.dll

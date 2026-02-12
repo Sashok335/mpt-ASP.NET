@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Профиль";
+    var userData = ViewBag.UserData as Dictionary<string, string>;
+}
+
+<div class="page-header">
+    <h1>Мой профиль</h1>
+</div>
+
+<div class="profile-container">
+    <div class="profile-grid">
+        <div class="profile-form">
+            <h2>Заполнить профиль</h2>
+            <form asp-controller="Home" asp-action="SaveProfile" method="post">
+                <div class="form-group">
+                    <label for="name" class="form-label">Имя <span class="required">*</span></label>
+                    <input type="text"
+                           id="name"
+                           name="name"
+                           class="form-input"
+                           placeholder="Введите ваше имя"
+                           value="@(userData != null && userData.ContainsKey("name") ? userData["name"] : "")"
+                           pattern="[а-яА-ЯёЁa-zA-Z\s]+"
+                           title="Только буквы и пробелы"
+                           required />
+                </div>
+
+                <div class="form-group">
+                    <label for="age" class="form-label">Возраст <span class="required">*</span></label>
+                    <input type="number"
+                           id="age"
+                           name="age"
+                           class="form-input"
+                           placeholder="Введите ваш возраст"
+                           value="@(userData != null && userData.ContainsKey("age") ? userData["age"] : "")"
+                           min="1"
+                           max="120"
+                           title="От 1 до 120 лет"
+                           required />
+                </div>
+
+                <div class="form-group">
+                    <label for="city" class="form-label">Город <span class="required">*</span></label>
+                    <input type="text"
+                           id="city"
+                           name="city"
+                           class="form-input"
+                           placeholder="Введите ваш город"
+                           value="@(userData != null && userData.ContainsKey("city") ? userData["city"] : "")"
+                           pattern="[а-яА-ЯёЁa-zA-Z\s]+"
+                           title="Только буквы и пробелы"
+                           required />
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="form-label">Телефон</label>
+                    <input type="tel"
+                           id="phone"
+                           name="phone"
+                           class="form-input"
+                           placeholder="+7 (999) 123-45-67"
+                           value="@(userData != null && userData.ContainsKey("phone") ? userData["phone"] : "")"
+                           pattern="[\+]?[0-9\s\-\(\)]{10,}"
+                           title="Формат: +7 (999) 123-45-67"
+                           inputmode="tel" />
+                </div>
+
+                <button type="submit" class="btn-add">Сохранить</button>
+            </form>
+        </div>
+
+        <div class="profile-data">
+            <h2>Введённые данные</h2>
+
+            @if (userData != null && userData.Count > 0)
+            {
+                <div class="profile-info-list">
+                    @if (userData.ContainsKey("name") && !string.IsNullOrWhiteSpace(userData["name"]))
+                    {
+                        <div class="profile-info-item">
+                            <strong>Имя:</strong> @userData["name"]
+                        </div>
+                    }
+                    @if (userData.ContainsKey("age") && !string.IsNullOrWhiteSpace(userData["age"]))
+                    {
+                        <div class="profile-info-item">
+                            <strong>Возраст:</strong> @userData["age"]
+                        </div>
+                    }
+                    @if (userData.ContainsKey("city") && !string.IsNullOrWhiteSpace(userData["city"]))
+                    {
+                        <div class="profile-info-item">
+                            <strong>Город:</strong> @userData["city"]
+                        </div>
+                    }
+                    @if (userData.ContainsKey("phone") && !string.IsNullOrWhiteSpace(userData["phone"]))
+                    {
+                        <div class="profile-info-item">
+                            <strong>Телефон:</strong> @userData["phone"]
+                        </div>
+                    }
+                </div>
+
+                <form asp-controller="Home" asp-action="ClearProfile" method="post" class="profile-clear-form">
+                    <button type="submit" class="btn-clear">Очистить профиль</button>
+                </form>
+            }
+            else
+            {
+                <div class="empty-state">
+                    <div class="empty-icon"></div>
+                    <p class="empty-text">Профиль пуст</p>
+                    <p class="empty-subtext">Заполните данные!</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
