@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Оплата";
+}
+
+<div class="container mt-5">
+    <div class="row g-5">
+        <div class="col-md-7">
+            <h2 class="text-white fw-bold mb-4"><i class="bi bi-credit-card-2-front text-info me-2"></i>Оплата заказа</h2>
+            <div class="card border-0 shadow-lg p-4" style="background-color: #27344b; border-radius: 20px;">
+                <form asp-action="ProcessPayment" method="post">
+                    <div class="mb-3 text-white">
+                        <label class="form-label opacity-75">Номер карты</label>
+                        <input type="text" class="form-control bg-dark border-secondary text-white rounded-pill px-4" placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-3 text-white">
+                            <label class="form-label opacity-75">Срок действия</label>
+                            <input type="text" class="form-control bg-dark border-secondary text-white rounded-pill px-4" placeholder="ММ/ГГ">
+                        </div>
+                        <div class="col-6 mb-3 text-white">
+                            <label class="form-label opacity-75">CVC</label>
+                            <input type="password" class="form-control bg-dark border-secondary text-white rounded-pill px-4" placeholder="***">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info w-100 rounded-pill fw-bold text-dark py-3 mt-3 shadow-sm">
+                        Оплатить сейчас
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <h4 class="text-muted mb-4">Партнерский блок</h4>
+            <div class="d-flex align-items-center justify-content-center text-center p-5 rounded-4"
+                 style="background-color: #1a2332; border: 2px dashed #455a64; height: 300px;">
+                <div>
+                    <i class="bi bi-megaphone text-secondary mb-3" style="font-size: 3rem;"></i>
+                    <p class="text-secondary fs-5 fw-light italic">
+                        Здесь могла быть ваша реклама,<br>но вы слишком долго выбирали товары...
+                    </p>
+                    <small class="text-info opacity-50">Звоните: 8-800-555-35-35</small>
+                </div>
+            </div>
+
+            <div class="mt-4 p-3 rounded-4" style="background-color: rgba(0, 180, 216, 0.1); border-left: 4px solid #00b4d8;">
+                <p class="text-info m-0 small">
+                    <i class="bi bi-shield-lock-fill me-2"></i> Ваши данные защищены (на самом деле нет, это же макет).
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
