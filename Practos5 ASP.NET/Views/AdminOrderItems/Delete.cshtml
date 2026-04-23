@@ -1,0 +1,23 @@
+@model Practos3.Models.AdminOrderItem
+@{
+    ViewData["Title"] = "Удалить позицию заказа";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="danger-card">
+    <h3 class="mb-3">Удалить позицию заказа?</h3>
+    <div class="admin-card p-3 text-start my-4">
+        <div><strong>ID:</strong> @Model.OrderItemID</div>
+        <div><strong>Заказ:</strong> @Model.OrderID</div>
+        <div><strong>Товар:</strong> @Model.Product?.ProductName</div>
+        <div><strong>Количество:</strong> @Model.Quantity</div>
+        <div><strong>Цена:</strong> @Model.UnitPrice.ToString("0.00")</div>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="OrderItemID" />
+        <div class="btn-toolbar-simple justify-content-center">
+            <button type="submit" class="btn btn-danger">Удалить</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Отмена</a>
+        </div>
+    </form>
+</div>
