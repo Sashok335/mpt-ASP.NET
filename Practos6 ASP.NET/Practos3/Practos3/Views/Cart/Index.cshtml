@@ -1,0 +1,107 @@
+@model IEnumerable<Practos3.Models.AdminCartItem>
+
+@{
+    ViewData["Title"] = "Корзина";
+    var totalSum = Model.Sum(x => x.Quantity * (x.Product?.Price ?? 0));
+    var totalItems = Model.Sum(x => x.Quantity);
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-white fw-bold m-0">
+            <i class="bi bi-cart3 text-info me-2"></i>Ваша корзина
+        </h2>
+
+        @if (Model.Any())
+        {
+            <form asp-action="Clear" method="post" onsubmit="return confirm('Вы уверены, что хотите полностью очистить корзину?')">
+                <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3 transition-hover">
+                    <i class="bi bi-trash-fill me-1"></i> Очистить корзину
+                </button>
+            </form>
+        }
+    </div>
+    @if (!Model.Any())
+    {
+        <div class="text-center py-5 rounded-4 shadow-lg" style="background-color: #27344b;">
+            <i class="bi bi-cart-x text-info mb-3" style="font-size: 4rem;"></i>
+            <h4 class="text-white">Корзина пока пуста</h4>
+            <p class="text-muted">Добавьте товары из каталога.</p>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-info mt-3 rounded-pill px-5 fw-bold text-dark">В каталог</a>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            <div class="col-lg-8">
+                @foreach (var item in Model)
+                {
+                    var rowSum = item.Quantity * (item.Product?.Price ?? 0);
+                    <div class="card border-0 shadow-sm mb-3" style="background-color: #27344b; border-radius: 15px;">
+                        <div class="card-body p-4 d-flex flex-column flex-md-row align-items-center justify-content-between">
+                            <div class="flex-grow-1 mb-3 mb-md-0">
+                                <h5 class="fw-bold text-white mb-1">@item.Product?.ProductName</h5>
+                                <span class="text-info fs-5 fw-bold">@item.Product?.Price.ToString("N0") ₽</span>
+                            </div>
+
+                            <div class="d-flex align-items-center mx-md-4 mb-3 mb-md-0">
+                                <form asp-action="UpdateQuantity" method="post" class="d-flex align-items-center bg-dark rounded-pill px-2 py-1">
+                                    <input type="hidden" name="id" value="@item.CartItemID" />
+                                    <button name="amount" value="-1" class="btn btn-sm text-info shadow-none fw-bold fs-5">-</button>
+                                    <span class="text-white fw-bold px-3" style="min-width: 40px; text-align: center;">@item.Quantity</span>
+                                    <button name="amount" value="1" class="btn btn-sm text-info shadow-none fw-bold fs-5">+</button>
+                                </form>
+                            </div>
+
+                            <div class="text-end" style="min-width: 120px;">
+                                <div class="text-white fw-bold mb-2">@rowSum.ToString("N0") ₽</div>
+                                <a asp-action="Remove" asp-route-id="@item.CartItemID" class="text-danger text-decoration-none small transition-hover d-inline-block">
+                                    <i class="bi bi-trash3-fill"></i> Удалить
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-lg position-sticky" style="top: 20px; background-color: #27344b; border-radius: 15px;">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold text-white mb-4">Детали заказа</h4>
+
+                        <div class="d-flex justify-content-between text-muted mb-2">
+                            <span>Товары (@totalItems шт.):</span>
+                            <span>@totalSum.ToString("N0") ₽</span>
+                        </div>
+                        <div class="d-flex justify-content-between text-muted mb-4 pb-3 border-bottom border-secondary">
+                            <span>Скидка:</span>
+                            <span class="text-success">0 ₽</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <span class="fs-5 text-white">Итого:</span>
+                            <span class="fs-3 fw-bold text-info">@totalSum.ToString("N0") ₽</span>
+                        </div>
+
+                        <a asp-action="Checkout" class="btn btn-info w-100 rounded-pill fw-bold text-dark py-3 mb-2 shadow-sm">
+                            Оформить заказ
+                        </a>
+                        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-light w-100 rounded-pill py-2 mt-2">
+                            Продолжить покупки
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .transition-hover {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .transition-hover:hover {
+        transform: scale(1.1);
+    }
+</style>
