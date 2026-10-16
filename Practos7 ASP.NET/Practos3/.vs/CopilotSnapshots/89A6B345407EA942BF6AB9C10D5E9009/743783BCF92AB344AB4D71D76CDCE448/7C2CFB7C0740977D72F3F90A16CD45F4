@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Доступ запрещен";
+}
+
+<div class="danger-card">
+    <h3>Доступ запрещен</h3>
+    <p class="text-muted">У вас нет прав для доступа к этой странице.</p>
+    <a href="/login" class="btn btn-outline-primary">Войти</a>
+</div>

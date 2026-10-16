@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebShop</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @**@
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        body {
+            background-color: #1b263b;
+            color: #e0e1dd;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: #0d1b2a !important;
+            border-bottom: 2px solid #415a77;
+        }
+
+        .navbar-brand, .nav-link {
+            transition: 0.3s;
+        }
+
+            .navbar-brand:hover {
+                color: #00b4d8 !important;
+            }
+
+        .card {
+            background-color: #415a77 !important;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+            }
+
+        .footer {
+            background-color: #0d1b2a;
+            border-top: 1px solid #415a77;
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+        .btn-info {
+            background-color: #00b4d8;
+            border: none;
+            color: #0d1b2a;
+        }
+
+            .btn-info:hover {
+                background-color: #90e0ef;
+                color: #0d1b2a;
+            }
+
+        .btn-outline-info {
+            border-color: #00b4d8;
+            color: #00b4d8;
+        }
+
+            .btn-outline-info:hover {
+                background-color: #00b4d8;
+                color: #0d1b2a;
+            }
+
+        .table-dark {
+            background-color: #1b263b;
+        }
+
+        .site-user {
+            display:flex; align-items:center; gap:10px;
+        }
+        .site-avatar { width:34px; height:34px; border-radius:50%; background:#00b4d8; color:#0d1b2a; display:flex; align-items:center; justify-content:center; font-weight:700; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark shadow-sm mb-3">
+            <div class="container">
+                <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-cpu-fill text-info me-2"></i>WebShop
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-controller="Home" asp-action="Index">Каталог</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <a asp-controller="Cart" asp-action="Index" class="btn btn-outline-info rounded-pill px-4 me-3">
+                            <i class="bi bi-cart3 me-2"></i>Корзина
+                        </a>
+
+                        @if (User?.Identity?.IsAuthenticated == true)
+                        {
+                            <div class="site-user">
+                                <div class="site-avatar">@User.Identity.Name.Substring(0,1).ToUpper()</div>
+                                <div class="text-end me-2">
+                                    <div style="font-weight:700; color:#e0e1dd;">@User.Identity.Name</div>
+                                    <small style="color:#adb5bd;">ID: @User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value</small>
+                                </div>
+                                <form method="post" asp-controller="Account" asp-action="Logout" class="m-0">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-outline-light btn-sm">Выйти</button>
+                                </form>
+                            </div>
+                        }
+                        else
+                        {
+                            <a class="btn btn-outline-light" href="/login">Войти</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050; margin-top: 60px;">
+                <div class="alert alert-dismissible fade show shadow-lg" role="alert" style="background-color: #00b4d8; color: #0d1b2a; border: none; border-radius: 10px;">
+                    <i class="bi bi-check-circle-fill me-2 fs-5 align-middle"></i>
+                    <strong class="align-middle">@TempData["SuccessMessage"]</strong>
+                    <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        }
+        <main role="main" class="pb-5">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-muted">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 - <span class="text-info">Shopp WebShopDB</span> - Практическая работа ASP.NET Core MVC</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var alertElement = document.querySelector('.alert');
+            if (alertElement) {
+                setTimeout(function () {
+                    var bsAlert = new bootstrap.Alert(alertElement);
+                    bsAlert.close();
+                }, 3500);
+            }
+        });
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

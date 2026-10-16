@@ -1,0 +1,14 @@
+@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="form-card">
+    <h3>Claims</h3>
+    <ul>
+        @foreach (var c in Model)
+        {
+            <li>@c.Type: @c.Value</li>
+        }
+    </ul>
+</div>
